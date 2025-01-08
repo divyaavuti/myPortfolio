@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+/* Light Theme */
+body.light {
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --navbar-bg: rgba(255, 255, 255, 0.9);
+}
+
+/* Dark Theme */
+body.dark {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --navbar-bg: rgba(0, 0, 0, 0.9);
+}
+
+/* Apply theme variables */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar {
+  background-color: var(--navbar-bg);
+  transition: background-color 0.3s ease;
+}

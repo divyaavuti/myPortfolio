@@ -1,0 +1,68 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 5%;
+  background-color: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon {
+  height: 40px;
+  width: 40px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links li button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  padding: 5px 10px;
+  transition: color 0.3s ease;
+  position: relative;
+  font-size: 1rem;
+}
+
+.nav-links li button:hover {
+  color: #ff4d4d;
+}
+
+.nav-links li button.active {
+  color: #ff4d4d;
+}
+
+.nav-links li button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ff4d4d;
+}
+
+.theme-toggle {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.theme-toggle i {
+  color: #000;
+}
