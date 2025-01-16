@@ -1,10 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import '../styles/Skills.css';
 import { FaCode, FaDatabase, FaTools, FaReact, FaCogs } from 'react-icons/fa';
 
 const Skills = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
+  const carouselRef = useRef(null);
 
   const skillsData = [
     {
@@ -34,41 +33,40 @@ const Skills = () => {
     },
   ];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        setIsVisible(entry.isIntersecting);
-      },
-      { threshold: 0.3 }
-    );
+  const scroll = (direction) => {
+    const cardWidth = 300; // Width of each card (adjust if card size changes)
+    const gap = 20; // Gap between cards
+    const scrollAmount = cardWidth + gap;
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
+    carouselRef.current.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth',
+    });
+  };
 
   return (
-    <section className="skills" id="skills" ref={sectionRef}>
-      <h2 className={`skills-heading ${isVisible ? 'zoom-in' : ''}`}>My Skills</h2>
-      <div className={`skills-grid ${isVisible ? 'zoom-in' : ''}`}>
-        {skillsData.map((skill, index) => (
-          <div className={`skill-card ${isVisible ? 'zoom-in' : ''}`} key={index}>
-            <div className="skill-icon">{skill.icon}</div>
-            <h3 className="skill-title">{skill.title}</h3>
-            <ul className="skill-list">
-              {skill.details.map((detail, idx) => (
-                <li key={idx}>{detail}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+    <section className="skills" id="skills">
+      <h2>My Skills</h2>
+      <div className="carousel-container">
+        <button className="carousel-arrow left-arrow" onClick={() => scroll('left')}>
+          &#8249;
+        </button>
+        <div className="carousel" ref={carouselRef}>
+          {skillsData.map((skill, index) => (
+            <div className="carousel-card" key={index}>
+              <div className="skill-icon">{skill.icon}</div>
+              <h3 className="skill-title">{skill.title}</h3>
+              <ul className="skill-details">
+                {skill.details.map((detail, idx) => (
+                  <li key={idx}>{detail}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <button className="carousel-arrow right-arrow" onClick={() => scroll('right')}>
+          &#8250;
+        </button>
       </div>
     </section>
   );

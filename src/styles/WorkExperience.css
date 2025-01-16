@@ -1,0 +1,158 @@
+/* General Section Styling */
+.work-experience {
+    padding: 80px 5%;
+    background: #fff;
+    color: #333;
+    text-align: center;
+  }
+  
+  .work-experience h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  
+  .work-experience h2::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 3px;
+    background-color: #ff4d4d;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* Experience Container */
+  .experience-container {
+    position: relative;
+    margin-top: 50px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .experience-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+    position: relative;
+    opacity: 0; /* Initially hidden for animation */
+    transform: translateY(30px); /* Slide in effect */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .experience-row.animate {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Reset the position */
+  }
+  
+  .experience-year {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    background: #ffffff;
+    color: #000000;
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+    text-align: center;
+    opacity: 0; /* Initially hidden for animation */
+    transform: translateX(-50px); /* Slide in from the left */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .experience-row.animate .experience-year {
+    opacity: 1; /* Fully visible */
+    transform: translateX(0); /* Reset the position */
+  }
+  
+  .experience-details {
+    background: #ffffff;
+    color: #1c1c1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    margin-left: 40px;
+    flex: 1;
+    opacity: 0; /* Initially hidden for animation */
+    transform: translateX(50px); /* Slide in from the right */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .experience-row.animate .experience-details {
+    opacity: 1; /* Fully visible */
+    transform: translateX(0); /* Reset the position */
+  }
+  
+  .experience-details h3 {
+    font-size: 1.5rem;
+    color: #ff4d4d;
+    margin-bottom: 10px;
+  }
+  
+  .location {
+    font-size: 1rem;
+    font-style: italic;
+    color: #6c757d;
+    margin-bottom: 10px;
+  }
+  
+  .role {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .description {
+    font-size: 1rem;
+    color: #333333;
+    margin-bottom: 20px;
+  }
+  
+  .details-button {
+    background: #ff4d4d;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .details-button:hover {
+    background: #ff4d4d;
+  }
+  
+  /* Vertical Separator Line */
+  .experience-row::before {
+    content: '';
+    position: absolute;
+    left: 250px; /* Align with year */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #ff4d4d;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .experience-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .experience-year {
+      margin-bottom: 10px;
+    }
+  
+    .experience-details {
+      margin-left: 0;
+    }
+  
+    .experience-row::before {
+      display: none;
+    }
+  }
+  

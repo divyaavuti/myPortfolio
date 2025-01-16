@@ -1,87 +1,109 @@
-/* Section Styles */
 .skills {
   padding: 80px 5%;
   background: linear-gradient(135deg, #f9f9f9, #ffffff);
   text-align: center;
 }
 
-.skills-heading {
-  font-size: 2.8rem;
+.skills h2 {
+  font-size: 2.5rem;
   color: #333;
-  margin-bottom: 50px;
-  opacity: 0;
-  transform: scale(0.8);
-  transition: all 0.6s ease;
+  margin-bottom: 30px;
+  position: relative;
 }
 
-.skills-heading.zoom-in {
-  opacity: 1;
-  transform: scale(1);
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  opacity: 0;
-  transform: scale(0.8);
-  transition: all 0.8s ease;
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 20px;
+  padding: 20px;
+  scrollbar-width: none; /* For Firefox */
 }
 
-.skills-grid.zoom-in {
-  opacity: 1;
-  transform: scale(1);
+.carousel::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Edge */
 }
 
-/* Card Styles */
-.skill-card {
+.carousel-card {
   background: #ffffff;
   border-radius: 15px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  padding: 30px;
+  padding: 20px;
   text-align: center;
-  transform: scale(0.8);
-  opacity: 0;
-  transition: all 0.6s ease;
+  flex: 0 0 300px; /* Adjust the card width */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.skill-card.zoom-in {
-  transform: scale(1);
-  opacity: 1;
+.carousel-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2);
 }
 
 .skill-icon {
   font-size: 3rem;
   color: #ff4d4d;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .skill-title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #333;
-  margin-bottom: 20px;
-  font-weight: bold;
+  margin: 0;
 }
 
-.skill-list {
+.skill-details {
   list-style: none;
   padding: 0;
-  margin: 0;
-  color: #555;
+  margin: 15px 0 0;
   text-align: left;
-  font-size: 1rem;
+  color: #555;
+  font-size: 0.9rem;
 }
 
-.skill-list li {
-  margin-bottom: 10px;
+.skill-details li {
+  margin-bottom: 8px;
   padding-left: 15px;
   position: relative;
 }
 
-.skill-list li::before {
+.skill-details li::before {
   content: '•';
   position: absolute;
   left: 0;
   color: #ff4d4d;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
+
+.carousel-arrow {
+  background: none; /* No background */
+  color: black; /* Set arrow color to black or white based on your preference */
+  border: none;
+  font-size: 2.5rem; /* Larger size for better visibility */
+  cursor: pointer;
+  position: absolute;
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Ensure the arrow stays vertically centered */
+  z-index: 1000;
+  transition: transform 0.2s ease; /* Smooth zoom effect */
+}
+
+.carousel-arrow:hover {
+  transform: translateY(-50%) scale(1.2); /* Zoom without moving vertically */
+}
+
+.left-arrow {
+  left: 15px; /* Adjust horizontal position */
+}
+
+.right-arrow {
+  right: 15px; /* Adjust horizontal position */
+}
+
+

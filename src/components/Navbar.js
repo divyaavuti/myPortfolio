@@ -39,7 +39,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="logo">
-        <img src="/logo.png" alt="Logo" className="logo-icon" /> {/* Replace with your logo */}
+        {/* <img src="/logo.png" alt="Logo" className="logo-icon" /> */}
       </div>
       <ul className="nav-links">
         <li>
@@ -76,6 +76,14 @@ const Navbar = () => {
         </li>
         <li>
           <button
+            className={activeSection === 'work-experience' ? 'active' : ''}
+            onClick={() => handleScrollToSection('work-experience')}
+          >
+            Work Experience
+          </button>
+        </li>
+        <li>
+          <button
             className={activeSection === 'contact' ? 'active' : ''}
             onClick={() => handleScrollToSection('contact')}
           >
@@ -83,6 +91,7 @@ const Navbar = () => {
           </button>
         </li>
       </ul>
+
       <div className="theme-toggle">
         <i className="fa fa-moon-o"></i> {/* Add light/dark mode toggle functionality here */}
       </div>

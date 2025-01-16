@@ -47,7 +47,7 @@ const Hero = () => {
         <span className="dynamic-title">{text}</span>
         <span className="blinking-cursor">|</span>
         <p></p>
-        <a href="#contact" className="hero-button">Contact Me</a>
+
       </div>
       <div className="hero-image">
         <img src={profileImage} alt="Divya" />
